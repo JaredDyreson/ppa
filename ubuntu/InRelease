@@ -1,0 +1,31 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Date: Wed, 27 Jan 2021 07:53:24 UTC
+MD5Sum:
+ deac58ccd84683670ff08c0d8048766f              784 Packages
+ 883e59bcc2bb5ca526ed6f039589677d              557 Packages.gz
+ 6e336bf5f75004cc127ae98d46fd8f52               36 Release
+SHA1:
+ 1f2ec415bab7ba1ddb1da5b25f5b69b2397a74c7              784 Packages
+ d856b55c8b67510f8c38792347e7853b32754b5b              557 Packages.gz
+ 476fe91fdf8241e516918ed41c637a411c3cc047               36 Release
+SHA256:
+ 1ac6928932ce87c1460cb1a96fa620734304413d2e0a26ff9f072c45aa68a5a0              784 Packages
+ 8b11fc841bea7a9c979b6f216f16514af49f447639f42376a3982515e083ab03              557 Packages.gz
+ 2c29e8b1c6a0e32d8ba03f1f2a1a94a702ed2f4b19742f4bd4d57ab1d7c41ea0               36 Release
+SHA512:
+ d903536fde71f89cd92c9c6d369f3f00a3541f49601f73fa696828d55051df60e742ac11e334807ab9dcb93da86f4657adb61f1b64444accc5140415115e643c              784 Packages
+ 8243a12a68c31b0fb62ecac8d203536c66a41296fbf22b143d3898863a9d4f1d31e8825c9e8fbc2c499437839f98ee1ebd5f7ed93aa84810e547ce547832e3fc              557 Packages.gz
+ 2fd5cc189ff0d56da4168fe877ff540e4b0d18e782991860648adce62a9b6fdc3d7c44a732d0b89b89e336f89c0d588fbb3206e4552857ba8e9a1ab82bd04bec               36 Release
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJgERv7AAoJEJ/YjYcCbea0N4oH/12NTidVueghiHcWELqKCqII
+elPoi75MU2/Fg7vxMnYklU3ivwmeWLcZb0m+197YdwjhQDa/m3scJpIaP4gkjjoZ
+9XKOFMXylMKVNsTiODw/2MgSagioBKvU6s4bSg87OZinOo1ZFFlMRlf/DBz0qEMs
+WDl7JcKcfrDqWCZVDWQkOGRNAiaXBMvZbi9DG/rYJdl27NZphE5F/DPMIbWjcpzy
+2ONxdj2gwLac3Qh0QSQja9smTkr7LHqefkJcWujDUk89G/vzrOR6EXO+ELKkJXQ0
+KufhWuPKw9bWifNHXB++tkP8RmJG1glw8a9DQdbtKyMUu0h35y7SJI13FAKzpYM=
+=UGVe
+-----END PGP SIGNATURE-----

@@ -5,8 +5,9 @@
 
 export EMAIL="jareddyreson@csu.fullerton.edu"
 export USERNAME="JaredDyreson"
-export KEYNAME="$(gpg --fingerprint | egrep -B1 'ultimate' | head -n1 |  sed -e 's/\s//g')"
+export KEYNAME="$(gpg --fingerprint | egrep -B1 'Jared Dyreson' | head -n1 |  sed -e 's/\s//g'| cut -d "=" -f2)"
 export HOME_DIR="$PWD"
+export BUILD_DIR="$PWD/ubuntu/builds"
 
 function dir_dne(){
   echo "[-] Cannot find $1, cowardly refusing!"
@@ -19,7 +20,7 @@ function aarch_err_(){
 }
 
 function rebuild_tuffix(){
-    # [[ "$(uname -v | grep -i "ubuntu")" ]] || aarch_err_
+    [[ "$(uname -v | grep -i "ubuntu")" ]] || aarch_err_
 
     echo "[INFO] Rebuilding the Tuffix installer"
 
@@ -31,8 +32,8 @@ function rebuild_tuffix(){
     git checkout "releasebuild"
 
     PKG_BASE="TuffixInstaller"
-    PKG_DIR_OUTPUT="builds"
     PKG_NAME="Tuffix"
+    PKG_ARCH="$(uname -m)"
 
     [[ ! -d "$PKG_BASE" ]] && dir_dne "$PKG_BASE"
 
@@ -46,20 +47,12 @@ function rebuild_tuffix(){
 
     echo "[+] Updated TuffixInstaller from version $CURRENT_VERSION to $NEW_VERSION"
 
-	#dpkg-deb --build "$PKG_BASE" "$PKG_DIR_OUTPUT"/$(PKG_NAME)_$(PKG_REVISION)_$(PKG_UPDATED)_$(PKG_ARCH).deb
-
-	#dpkg-deb --build "$PKG_BASE" "$PKG_DIR_OUTPUT"/"$PKG_NAME"_"$PKG_REVISION"_"$PKG_UPDATED"_"$PKG_ARCH".deb
+    dpkg-deb --build "$PKG_BASE" "$BUILD_DIR"/"$PKG_NAME"_"$PKG_REVISION"_"$NEW_VERSION"_"$PKG_ARCH".deb
 
 }
 
 function update_deb_folder(){
-    # cd ubuntu
-
-    cd /tmp
-
-    T="/tmp/temp_structure"
-
-    [[ -d "$T" ]] && rm -rf "$T"
+    cd "$HOME_DIR/ubuntu"
 
     # Packages & Packages.gz
 
