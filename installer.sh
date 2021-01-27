@@ -2,7 +2,7 @@
 
 # Script to instaniate any Ubuntu server to be the Tuffix PPA server
 # AUTHOR: Jared Dyreson
-# SOURCE: https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04
+# SOURCE: https://www.youtube.com/watch?v=OWAqilIVNgE
 
 function aarch_err_(){
     echo "[ERROR] Incorrect architecture, detected: $(uname -r)" 
@@ -19,18 +19,14 @@ function apache_err_(){
     exit
 }
 
-function install_apache(){
-    export DEST="/var/www/html/repo"
+function install_nginx(){
+    export DEST="/var/www/html/cabin"
     apt update
     apt upgrade -y
     apt install nginx certbot python3-certbot-nginx
 
-    #apt install apache2
-
-    #[[ "$(ufw app list | grep "Apache" | wc -l)" -ne 3 ]] && apache_err_
-    #apt ufw allow 'Apache'
-    #[[ "$(ufw status | awk '/Status/ {print $2}')" != "active" || "$(systemctl status apache2 | awk '/Active/ {print $2}')" != "active" ]] && apache_err_
-    #echo "[INFO] Your IP Address is: $(hostname -I)"
+    wget -q -O - https://raw.githubusercontent.com/JaredDyreson/ppa/devbranch/nginx-default-conf > /etc/nginx/sites-available/cabin
+    ln -s /etc/nginx/sites-available/cabin /etc/nginx/sites-enabled/
     git clone https://github.com/JaredDyreson/ppa.git "$DEST"
     cd "$DEST"
     git checkout devbranch
@@ -39,4 +35,4 @@ function install_apache(){
 
 [[ "$(whoami)" != "root" ]] && err_
 [[ "$(lsb_release -sc)" ]] || aarch_err_
-install_apache
+install_nginx
