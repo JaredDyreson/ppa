@@ -1,0 +1,14 @@
+Package: tuffix
+Version: 1.0-2
+Architecture: amd64
+Maintainer: Jared Dyreson <jareddyreson@csu.fullerton.edu>
+Depends: ansible, autoconf, automake, a2ps, cscope, curl, dkms, emacs, enscript, git, glibc-doc, gpg, graphviz, gthumb, libreadline-dev, manpages-posix, manpages-posix-dev, meld, nfs-common, openssh-client, openssh-server, python3, python3-pip, seahorse, synaptic, wget, vim, vim-gtk3
+Filename: ./builds/Tuffix_1.0_2_x86_64.deb
+Size: 1454
+MD5sum: 18671fb5f2df5030751b08866fc30a7f
+SHA1: c8ba0a167a6a0139923505ee8b937e37b520d593
+SHA256: 76c96a3695559df857df6fb5d56bc8dae423cfb06d909cb1a188c35c9263c35c
+Section: base
+Priority: optional
+Description: Program to aide in the management of software dependencies for California State University Fullerton Computer Science courses.
+

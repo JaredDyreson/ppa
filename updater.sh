@@ -52,20 +52,23 @@ function rebuild_tuffix(){
 }
 
 function update_deb_folder(){
-    cd "$HOME_DIR/ubuntu"
+    cd "$HOME_DIR/amd64"
 
     # Packages & Packages.gz
 
-    dpkg-scanpackages --multiversion . > Packages
-    gzip -k -f Packages
+    dpkg-scanpackages --multiversion . > "$HOME_DIR/Packages"
+    gzip -k -f "$HOME_DIR/Packages"
 
     # Release, Release.gpg & InRelease
 
-    apt-ftparchive release . > Release
-    gpg --default-key "$KEYNAME" -abs -o - Release > Release.gpg
-    gpg --default-key "$KEYNAME" --clearsign -o - Release > InRelease
+    cd "$HOME_DIR"
+
+    apt-ftparchive release . > "$HOME_DIR/Release"
+    gpg --default-key "$KEYNAME" -abs -o -  "$HOME_DIR/Release" > "$HOME_DIR/Release.gpg"
+    gpg --default-key "$KEYNAME" --clearsign -o - "$HOME_DIR/Release" > "$HOME_DIR/InRelease"
 }
 
+# echo "deb http://$(hostname -I)/repo /"
 
-rebuild_tuffix
+# rebuild_tuffix
 update_deb_folder
